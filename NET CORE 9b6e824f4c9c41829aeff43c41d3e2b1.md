@@ -1,0 +1,56 @@
+# .NET CORE
+
+# 닷넷 코어와 닷넷의 차이
+
+- 닷넷 코어는 윈도우 뿐 아니라 macOs와 Linux 에서도 사용 가능하지만  닷넷은 윈도우에서만 사용 가능.
+- 닷넷 코어는 visual studio 뿐 아니라 vs code에서도 사용 가능 , 닷넷은 visual studio에서만 사용 가능.
+
+---
+
+## **.NET CORE mvc 프레임워크**
+
+- model, view, controller 세가지 구성요소로 구분되어있다.
+- .NET Core에 사용하도록 최적화된 가볍고 테스트가 용이한 프레젠테이션 프레임워크다.
+- .NET Core 라우팅 기반으로 한다.
+
+    → 라우팅이란 들어오는 HTTP 요청을 일치시켜 앱의 실행 가능 엔드포인트로 디스패치하는 역할을 담당한다.
+
+    ```csharp
+    //규칙 기반 라우팅을 사용 하면 응용 프로그램에서 허용 하는 URL 형식과 이러한 형식의 각 
+    //형식이 지정 된 컨트롤러의 특정 작업 메서드에 매핑되는 방식을 전역적으로 정의할 수 있다.
+    routes.MapRoute(name: "Default", template: "{controller=Home}/{action=Index}/{id?}");
+    ```
+
+    ```csharp
+    //특성 라우팅 을 사용하면 응용 프로그램의 경로를 정의하는 특성으로 컨트롤러와 
+    //작업을 데코레이팅하여 라우팅 정보를 지정할 수 있습니다. 
+    //즉, 경로 정의는 연결된 컨트롤러 및 작업 옆에 배치된다.
+    [Route("api/[controller]")]
+    public class ProductsController : Controller
+    {
+        [HttpGet("{id}")]
+        public IActionResult GetProduct(int id)
+        {
+          ...
+        }
+    }
+    ```
+
+### .NET CORE에서 form태그 action 형식
+
+- MVC 방식에서 View는 .cshtml 파일 형식으로 만든다.
+- form 태그 action 형식으로 controller에 넘길 때는 아래 기법 사용한다.
+
+    ```html
+    <!--cshtml 기법-->
+    <form name="form" asp-controller="Home" asp-action="Login" method="post">
+    </form>
+
+    <!--html5 기법-->
+    <form name="form" method="post" action="/Home/Login">
+    </form>
+    ```
+
+    - method : get 방식인지, post방식인 지 지정
+    - asp-controller : controller name
+    - asp-action : controller 내의 메소드 이름
