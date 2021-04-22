@@ -40,3 +40,19 @@
 
 - PureComponent 를 사용하면 성능 최적화 하기 좋다.
 - Hooks 를 사용할 때에는 memo를 사용하여 성능 최적화를 한다.
+- - render 안에 this.state를 사용하면 무한 반복되어서 성능이 안좋아진다.
+
+    →render안에 무조건 this.state사용하면 안된다.
+
+- props는 자식 컴포넌트는 props를 맘대로 바꾸면 안된다. 부모 컴포넌트가 물려준 거기 때문에 바꿀 경우 부모 컴포넌트가 변경된다.
+- constructor 활용 방법
+
+    ```jsx
+    constructor(props) {
+    	super(props);
+    	// 다른동작
+    	const filtered = this.props.filter(() => {
+    		
+    	});
+    }
+    ```
