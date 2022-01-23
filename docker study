@@ -1,0 +1,34 @@
+**1) 다운로드 받은 도커 이미지 내역 조회 명령어 : docker image ls**
+
+```
+#docker 이미지 내역 조회 명령어 : docker image ls
+
+$docker image ls
+REPOSITORY                         TAG       IMAGE ID       CREATED        SIZE
+ubuntu                             latest    9f4877540c73   2 weeks ago    65.6MB
+mcr.microsoft.com/azure-sql-edge   latest    75f7941167f9   7 months ago   1.84GB
+```
+
+**2) 이미지 삭제 명령어 : docker rmi IMAGE ID**
+
+```
+#docker image 삭제 명령어 : docker rmi IMAGE ID
+
+$docker rmi 9f4877540c73 
+Untagged: ubuntu:latest
+Untagged: ubuntu@sha256:b5a61709a9a44284d88fb12e5c48db0409cfad5b69d4ff8224077c57302df9cf
+Deleted: sha256:9f4877540c734dfd8ee2e523b1487788f871e64a4f3137797d33e5971ac9adde
+Deleted: sha256:5893b75bac23d31791f6ee122b87467debd4b7f5b8b6dbbb09d1734a8f3beb5f
+```
+
+**3) 컨테이너 생성 하는 명령어** 
+
+```
+$docker create ubuntu
+```
+
+**4) 생성된 컨테이너 확인** 
+
+```
+$docker ps -a
+```
